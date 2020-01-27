@@ -3,10 +3,17 @@
     <button mat-icon-row>
       <mat-icon>menu</mat-icon>
     </button>
+
     <a mat-button [routerLink]="['/']">Home</a>
     <a mat-button [routerLink]="['/products']">Products</a>
     <a mat-button [routerLink]="['/about']">About</a>
-    <a mat-button [routerLink]="['/login']">Get Started</a>
+    <a mat-button *ngIf="!user" [routerLink]="['/login']">Get Started</a>
+    <a mat-button *ngIf="user" [matMenuTriggerFor]="Menu">{{user.displayName}}</a>
+    <mat-menu #Menu="matMenu">
+      <button mat-menu-item [routerLink]="['/orders']">Orders</button>
+      <button mat-menu-item [routerLink]="['/admin']">Admin Dashboard</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
     <a mat-button>0<i class="material-icons">shopping_cart</i></a>
   </mat-toolbar-row>
 </mat-toolbar>

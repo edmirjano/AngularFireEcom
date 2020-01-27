@@ -17,6 +17,7 @@ import { AppModuleAdmin } from './modules/admin/app.module';
 import { AppModuleAuth } from './modules/auth/app.module';
 import { AppModuleMenu } from './modules/menu/app.module';
 import { AppModuleProducts } from './modules/products/app.module';
+import { AppModuleOrders } from './modules/orders/app.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -35,6 +36,7 @@ import { AppModuleProducts } from './modules/products/app.module';
     AppModuleMenu,
     AppModuleProducts,
     AppModuleCommon,
+    AppModuleOrders,
     RouterModule
   ],
   providers: [],

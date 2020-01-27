@@ -6,6 +6,8 @@ import { ProductComponent } from './modules/products/components/product/product.
 import { HomeComponent } from './modules/common/components/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { OrderComponent } from './modules/orders/components/order/order.component';
+import { LoginserviceService } from './modules/auth/services/loginservice.service';
 
 
 const routes: Routes = [
@@ -28,11 +30,17 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminComponent
+    component: AdminComponent,
+    canActivate: [LoginserviceService]
   },
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: 'orders',
+    component: OrderComponent,
+    canActivate: [LoginserviceService]
   }
 ];
 

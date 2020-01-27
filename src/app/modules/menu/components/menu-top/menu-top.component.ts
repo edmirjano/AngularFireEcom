@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginserviceService } from 'src/app/modules/auth/services/loginservice.service';
 
 @Component({
   selector: 'app-menu-top',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuTopComponent implements OnInit {
 
-  constructor() { }
+  user: firebase.User;
+  constructor(private login: LoginserviceService) { }
 
   ngOnInit() {
+    this.login.getCurrentUser().subscribe(
+      data=>{
+        this.user=data;
+      }
+    )
   }
-
+  logout(){
+    this.login.logoutwithgoogle();
+  }
 }
